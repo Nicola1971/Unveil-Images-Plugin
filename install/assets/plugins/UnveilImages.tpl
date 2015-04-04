@@ -6,19 +6,19 @@
  *
  * @author    Nicola Lambathakis
  * @category    plugin
- * @version    1.0.1 PL
+ * @version    1.0.3 PL
  * @license	 http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
- * @internal    @events OnWebPagePrerender
+ * @internal    @events OnWebPagePrerender,OnLoadWebDocument
  * @internal    @installset base
  * @internal    @modx_category Images
- * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder  
+ * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder
  */
 
 /*
 ###UnveilImages Plugin for MODX Evolution###
 Written By Nicola Lambathakis: http://www.tattoocms.it
 Based on Unveil jQuery Plugin : https://github.com/luis-almeida/unveil
-Version 1.0.2 PL
+Version 1.0.3 PL
 Events: OnWebPagePrerender
 
  */
@@ -32,14 +32,17 @@ Events: OnWebPagePrerender
 $e= & $modx->Event;
 switch ($e->name) {
 
+case "OnLoadWebDocument":
+
+	// assets images (content)
+	$modx->documentObject['content'] = str_replace(' src="'.$ImagesFolder.'',' src="'.$LoadingImage.'" data-src="'.$ImagesFolder.'',$modx->documentObject['content']);
+
 case "OnWebPagePrerender" :
 	$modx->documentOutput= str_replace('</body>', '<script src="assets/plugins/unveil/jquery.unveil.js"></script>
 	<script src="assets/plugins/unveil/scripts.js"></script>
 	</body>', $modx->documentOutput);
 
 
-		// assets images (content)
-	$modx->documentOutput= str_replace(' src="'.$ImagesFolder.'',' src="'.$LoadingImage.'" data-src="'.$ImagesFolder.'',$modx->documentOutput);
 
 		// cache images (phpthumb)
 	$modx->documentOutput= str_replace(' src="assets/cache/images/',' src="'.$LoadingImage.'" data-src="assets/cache/images/',$modx->documentOutput);
