@@ -2,7 +2,7 @@
 /**
  * UnveilImages
  *
- * Light weight LazyLoad plugin
+ * Lightweight LazyLoad plugin
  *
  * @author    Nicola Lambathakis
  * @category    plugin
@@ -11,7 +11,7 @@
  * @internal    @events OnWebPagePrerender
  * @internal    @installset base
  * @internal    @modx_category Images
- * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilTemplateImages= UnveilTemplateImages:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/  
+ * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilTemplateImages= UnveilTemplateImages:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/
  */
 
 /*
