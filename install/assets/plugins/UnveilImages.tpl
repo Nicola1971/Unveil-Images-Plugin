@@ -6,25 +6,25 @@
  *
  * @author    Nicola Lambathakis
  * @category    plugin
- * @version    1.0.3 PL
+ * @version    1.0.4 PL
  * @license	 http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnWebPagePrerender,OnLoadWebDocument
  * @internal    @installset base
  * @internal    @modx_category Images
- * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder
+ * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilConfig= Unveil js Config:;string;assets/plugins/unveil/unveilconfig.js &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder 
  */
 
 /*
 ###UnveilImages Plugin for MODX Evolution###
 Written By Nicola Lambathakis: http://www.tattoocms.it
 Based on Unveil jQuery Plugin : https://github.com/luis-almeida/unveil
-Version 1.0.3 PL
+Version 1.0.4 PL
 Events: OnWebPagePrerender,OnLoadWebDocument
 
  */
 
 /**
-&LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder
+&LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilConfig= Unveil js Config:;string;assets/plugins/unveil/unveilconfig.js &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder
 
 */
 
@@ -39,7 +39,7 @@ case "OnLoadWebDocument":
 
 case "OnWebPagePrerender" :
 	$modx->documentOutput= str_replace('</body>', '<script src="assets/plugins/unveil/jquery.unveil.js"></script>
-	<script src="assets/plugins/unveil/scripts.js"></script>
+	<script src="'.$UnveilConfig.'"></script>
 	</body>', $modx->documentOutput);
 
 
