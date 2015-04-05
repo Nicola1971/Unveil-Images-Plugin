@@ -19,7 +19,7 @@
 Written By Nicola Lambathakis: http://www.tattoocms.it
 Based on Unveil jQuery Plugin : https://github.com/luis-almeida/unveil
 Version 1.0.3 PL
-Events: OnWebPagePrerender
+Events: OnWebPagePrerender,OnLoadWebDocument
 
  */
 
