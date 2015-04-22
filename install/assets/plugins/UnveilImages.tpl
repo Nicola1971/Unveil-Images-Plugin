@@ -6,19 +6,19 @@
  *
  * @author    Nicola Lambathakis
  * @category    plugin
- * @version    1.0.4 PL
+ * @version    1.0.5 PL
  * @license	 http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @internal    @events OnWebPagePrerender,OnLoadWebDocument
  * @internal    @installset base
  * @internal    @modx_category Images
- * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilConfig= Unveil js Config:;string;assets/plugins/unveil/unveilconfig.js &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder 
+ * @internal    @properties  &LoadingImage= Loading Image:;string;assets/plugins/unveil/loading.gif &UnveilConfig= Unveil js Config:;string;assets/plugins/unveil/unveilconfig.js &ImagesFolder= Images Folder:;string;assets/images/ &UnveilGalleryImages= Unveil Gallery Images:;list;yes,no;no &GalleryImagesFolder= Gallery Images Folder:;string;assets/galleries/ &UnveilTemplateImages= Unveil Template Images:;list;yes,no;no &TemplateImagesFolder= Template Images Folder:;string;assets/templates/templatename/images/ &UnveilCustumImages= Unveil Custom Images:;list;yes,no;no &UnveilCustumFolder= Custom Images Folder:;string;assets/yourfolder
  */
 
 /*
 ###UnveilImages Plugin for MODX Evolution###
 Written By Nicola Lambathakis: http://www.tattoocms.it
 Based on Unveil jQuery Plugin : https://github.com/luis-almeida/unveil
-Version 1.0.4 PL
+Version 1.0.5 PL
 Events: OnWebPagePrerender,OnLoadWebDocument
 
  */
@@ -60,7 +60,7 @@ case "OnWebPagePrerender" :
  }
 		// custom folder images
 	 if ($UnveilCustumImages == yes) {
-	$modx->documentOutput= str_replace(' src="'.$TemplateImagesFolder.'',' src="'.$LoadingImage.'" data-src="'.$TemplateImagesFolder.'',$modx->documentOutput);
+	$modx->documentOutput= str_replace(' src="'.$UnveilCustumFolder.'',' src="'.$LoadingImage.'" data-src="'.$UnveilCustumFolder.'',$modx->documentOutput);
  }
 		break;
 
